@@ -676,3 +676,25 @@ if ('IntersectionObserver' in window) {
     
     lazyImages.forEach(img => imageObserver.observe(img));
 }
+
+// Manejar el resize para el estadio 3D
+window.addEventListener('resize', () => {
+    if (stadiumRenderer && stadiumCamera) {
+        const canvas = document.getElementById('stadium3D');
+        const container = canvas.parentElement;
+        
+        // Obtener el ancho del contenedor
+        const width = container.clientWidth;
+        // Mantener aspect ratio 16:9
+        const height = width * 0.5625; // 9/16 = 0.5625
+        
+        // Actualizar tamaño del canvas
+        canvas.width = width;
+        canvas.height = height;
+        
+        // Actualizar cámara y renderer
+        stadiumCamera.aspect = width / height;
+        stadiumCamera.updateProjectionMatrix();
+        stadiumRenderer.setSize(width, height);
+    }
+});

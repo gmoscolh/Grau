@@ -1720,3 +1720,40 @@ img {
         justify-content: center;
     }
 }
+/* === CORRECIONES RESPONSIVE PARA EL ESTADIO 3D === */
+@media (max-width: 768px) {
+    .stadium-viewer {
+        padding: 15px;
+    }
+    
+    #stadium3D {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16/9;
+    }
+    
+    .viewer-controls {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        flex: 1 1 auto;
+        min-width: 100px;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stadium-viewer {
+        padding: 10px;
+    }
+    
+    .control-btn {
+        min-width: 80px;
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+}
